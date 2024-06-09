@@ -8,26 +8,10 @@ This is for test website on Mir server
 git clone https://github.com/susanhsrestha/test-website.git
 ```
 
-## Install dependencies for fresh ubuntu machine
+## Run the program
 
 (Make sure the file is executable)
 
 ```bash
- ./script.sh
-```
-
-## Navigate to backend folder, install dependencies
-
-```bash
- cd backend/
- npm install
- npm start
-```
-
-## Navigate to frontend folder, install dependencies
-
-```bash
- cd ../frontend/
- npm install
- npm start
+ ./setup.sh
 ```
