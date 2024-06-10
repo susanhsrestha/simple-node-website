@@ -14,7 +14,7 @@ function App() {
 
   const fetchNames = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/names');
+      const response = await axios.get('https://localhost:3001/names');
       setNames(response.data);
     } catch (error) {
       console.error('Error fetching names', error);
@@ -24,7 +24,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/submit', { name });
+      const response = await axios.post('https://localhost:3001/submit', { name });
       setMessage(response.data.message);
       setName('');
       fetchNames();  // Refresh the list after submitting
