@@ -3,9 +3,16 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
+const https = require('https');
 
 const app = express();
 const port = 3001;
+
+// SSL setup
+const sslOptions = {
+    key: fs.readFileSync(path.join(__dirname, '../ssl/server.key')),
+    cert: fs.readFileSync(path.join(__dirname, '../ssl/server.cert'))
+};
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -45,6 +52,7 @@ app.get('/names', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
+// Start the HTTPS server
+https.createServer(sslOptions, app).listen(port, () => {
+    console.log(`Server running at https://localhost:${port}/`);
 });
